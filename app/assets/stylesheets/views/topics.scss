@@ -1,0 +1,16 @@
+
+.topic-parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 30px;
+  //justify-content: space-around;
+}
+
+.topic-child {
+  flex: 1 0 300px;
+  margin: 10px;
+  border: 1px solid;
+  border-color: black;
+  padding-bottom: 10px;
+}

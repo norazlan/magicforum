@@ -1,0 +1,54 @@
+.about {
+  background-image: asset-url("bg-about.jpg");
+  background-position: center center;
+	background-repeat:  no-repeat;
+	background-size:cover;
+  height: 100vh;
+  width: 100%;
+
+
+
+  h1 {
+    font-family: 'Neuton', serif;
+    font-size: 60px;
+  }
+
+  #para-1 {
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 60px;
+    margin: 0;
+    line-height: 20px;
+  }
+
+  #para-2 {
+    font-family: 'Bree Serif', serif;
+    font-size: 50px;
+    margin: 0;
+  }
+
+  .about-child {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .about-child-2 {
+    padding-top: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+  }
+
+
+
+  @media all and (max-width: 1199px) {
+    h1 {
+      font-size: 30px;
+    }
+}
+
+
+}

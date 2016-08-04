@@ -1,0 +1,10 @@
+<h1>Topics</h1>
+<%= link_to "Create New Topic", new_topic_path, class: "btn btn-success" %>
+<section class="topic-parent text-center">
+<% @topics.each do |topic| %>
+  <div class="topic-child">
+    <%= link_to topic_path(topic) do %><h3><%= topic.title %></h3><% end %>
+    <h5><%= topic.description %></h5>
+  </div>
+<% end %>
+</section>
