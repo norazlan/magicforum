@@ -1,0 +1,10 @@
+<h1>Comments for "<%= @post.title %>"</h>
+<%= link_to "Create New Comment", new_topic_post_comment_path, class: "btn btn-success" %>
+
+  <section class="topic-parent text-center">
+  <% @comments.each do |comment| %>
+    <div class="topic-child">
+      <h5><%= comment.body %></h5>
+    </div>
+  <% end %>
+  </section>

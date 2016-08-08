@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 #gem 'bcrypt', '~> 3.1.11'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick', '~> 3.5.0'
 
 group :development, :test do
   gem 'pry'

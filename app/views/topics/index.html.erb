@@ -5,6 +5,8 @@
   <div class="topic-child">
     <h3><%= link_to topic.title, topic_posts_path(topic) %></h3>
     <h5><%= topic.description %></h5>
+    <%= link_to "Edit Topic", edit_topic_path(topic), class: "btn btn-primary" %>
+    <%= link_to "Delete Topic", topic_path(topic), method: :delete, data: { confirm: "Delete? The topic will be deleted"}, class: "btn btn-danger" %>
   </div>
 <% end %>
 </section>
