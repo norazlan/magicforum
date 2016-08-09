@@ -5,7 +5,7 @@
   <div class="topic-child">
     <%= link_to post.title, topic_post_comments_path(@topic, post) %>
     <h5><%= post.body %></h5>
-    <%= image_tag post.image, class: "img-settings img-responsive center-block" %>
+    <%= image_tag post.image, class: "img-settings img-responsive center-block post-image" %>
     <%= link_to "Edit Post", edit_topic_post_path(@topic, post), class: "btn btn-primary" %>
   </div>
 <% end %>
