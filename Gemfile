@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'pry'

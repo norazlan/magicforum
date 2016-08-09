@@ -5,6 +5,7 @@
   <% @comments.each do |comment| %>
     <div class="topic-child">
       <h5><%= comment.body %></h5>
+      <%= link_to "Edit Comment", class: "btn btn-success" %>
     </div>
   <% end %>
   </section>
