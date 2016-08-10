@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "Something wrong were happen"
       redirect_to user_path
+    end
   end
 
   private
