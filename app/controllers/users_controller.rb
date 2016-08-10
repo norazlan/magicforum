@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @topic.update(user_params)
+    if @user.update(user_params)
       flash[:success] = "Profile is Updated"
       redirect_to user_path
     else
