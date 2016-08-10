@@ -36,6 +36,10 @@ group :development, :test do
   gem 'pry'
 end
 
+group :development do
+    gem 'letter_opener'
+end
+
 group :production do
   gem 'rails_12factor'
 end
