@@ -25,10 +25,10 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       flash[:success] = "Profile is Updated"
-      redirect_to user_path
+      redirect_to root_path
     else
       flash[:danger] = "Something wrong were happen"
-      redirect_to user_path
+      redirect_to edit_user_path
     end
   end
 
