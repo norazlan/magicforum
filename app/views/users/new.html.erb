@@ -18,11 +18,6 @@
 
 <div class="form-group">
   <h4> <%= f.label :title_field, "Avatar" %> </h4>
-  <div id="preview-image">
-    <% if @user.image? %>
-      <%= image_tag @user.image, class: "img-settings img-responsive center-block post-image" %>
-    <% end %>
-  </div>
   <div class="form-group">
     <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
   </div>
