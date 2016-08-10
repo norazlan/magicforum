@@ -1,5 +1,5 @@
 <h2><%= current_user.username %>, you can edit your profile information here</h2>
-<%= form_for(@user, url: edit_user_path, html: {id: "topic-create-form"}) do |f| %>
+<%= form_for(@user, url: edit_user_path(@user), html: {id: "topic-create-form"}) do |f| %>
 
 <div class="form-group">
   <h4><%= f.label :title_field, "Username:" %></h4>
