@@ -1,1 +1,32 @@
 <h2><%= current_user.username %>, you can edit your profile information here</h2>
+<%= form_for(@user, url: edit_user_path, html: {id: "topic-create-form"}) do |f| %>
+
+<div class="form-group">
+  <h4><%= f.label :title_field, "Username:" %></h4>
+  <h4><%= current_user.username %></h4>
+</div>
+
+<div class="form-group">
+  <h4> <%= f.label :title_field, "Email" %> </h4>
+  <h4><%= current_user.email %></h4>
+</div>
+
+<div class="form-group">
+  <h4> <%= f.label :title_field, "Password" %> </h4>
+  <%= f.text_field :password, required: true, id: "user_password_field", class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <h4> <%= f.label :title_field, "Avatar" %> </h4>
+  <div id="preview-image">
+    <% if @user.image? %>
+      <%= image_tag @user.image, class: "img-settings img-responsive center-block post-image" %>
+    <% end %>
+  </div>
+    <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
+</div>
+
+<div class="form-group text-center">
+  <%= f.submit "Create Account", class: "btn btn-success btn-lg" %>
+</div>
+<% end %>
