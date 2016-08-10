@@ -14,5 +14,5 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
     flash[:danger] = "You need to login first"
   end
-  
+end
 end
