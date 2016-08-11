@@ -8,7 +8,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    new?
+    user.present? && record.user_id == user.id || user_has_power?
   end
 
   def update?
@@ -18,4 +18,11 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     new?
   end
+
+  private
+
+  def user_has_power?
+    user.admin? || user.moderator?
+  end
+  
 end
