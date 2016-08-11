@@ -25,9 +25,11 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def edit
     @topic = Topic.find_by(id: params[:id])
+    authorize @topic
   end
 
   def update
+    binding.pry
     @topic = Topic.find_by(id: params[:id])
 
     if @topic.update(topic_params)
