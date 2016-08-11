@@ -8,6 +8,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
