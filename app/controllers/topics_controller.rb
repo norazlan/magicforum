@@ -32,10 +32,10 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     @topic = Topic.find_by(id: params[:id])
 
     if @topic.update(topic_params)
-      flash[:danger] = @topic.errors.full_messages
       redirect_to topics_path
     else
-      redirect_to edit_topic_path(@topic)
+      flash[:danger] = @topic.errors.full_messages
+      render :edit
     end
   end
 
