@@ -29,7 +29,6 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def update
-    binding.pry
     @topic = Topic.find_by(id: params[:id])
 
     if @topic.update(topic_params)
