@@ -34,8 +34,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     if @topic.update(topic_params)
       redirect_to topics_path
     else
-      flash[:danger] = @topic.errors.full_messages
-      render :edit
+      redirect_to topics_path(@topic)
     end
   end
 
