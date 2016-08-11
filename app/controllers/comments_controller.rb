@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   def new
     @post = Post.find_by(id: params[:post_id])
     @comment = Comment.new
+    authorize @comment
   end
 
   def create
@@ -22,6 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    authorize @comment
     @comment = Comment.find_by(id: params[:id])
   end
 
@@ -36,6 +38,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize @comment
   end
 
   private

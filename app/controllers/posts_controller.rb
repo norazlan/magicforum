@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def new
     @topic = Topic.find_by(id: params[:topic_id])
     @post = Post.new
+    authorize @post
   end
 
   def create
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
     @topic = @post.topic
+    authorize @post
   end
 
   def update
@@ -38,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
     @post = Post.find_by(id: params[:id])
       @topic = @post.topic
 

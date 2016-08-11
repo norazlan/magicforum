@@ -25,6 +25,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def edit
     @topic = Topic.find_by(id: params[:id])
+    authorize @topic
   end
 
   def update
@@ -38,6 +39,8 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def destroy
+    authorize @topic
+    
       @topic = Topic.find_by(id: params[:id])
      if @topic.destroy
        redirect_to topics_path
