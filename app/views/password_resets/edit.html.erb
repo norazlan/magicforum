@@ -1,6 +1,6 @@
 <div class="password-resets edit">
     <div class="content">
-      <%= form_for(:user, url: password_resets_path(id: @token), method: :patch, html: { id: "user-set-new-password-form" }) do |f| %>
+      <%= form_for(:user, url: password_reset_path(id: @token), method: :patch, html: { id: "user-set-new-password-form" }) do |f| %>
         <h1 class="white shadowed text-center">
           Set New Password
         </h1>
