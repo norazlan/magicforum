@@ -32,6 +32,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     @topic = Topic.find_by(id: params[:id])
 
     if @topic.update(topic_params)
+      binding.pry
       redirect_to topics_path
     else
       redirect_to edit_topic_path(@topic)
