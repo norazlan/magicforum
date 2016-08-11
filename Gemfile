@@ -31,6 +31,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
