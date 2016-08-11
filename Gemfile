@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt'
 gem 'figaro'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry'
