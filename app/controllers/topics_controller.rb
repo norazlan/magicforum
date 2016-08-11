@@ -33,6 +33,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
     if @topic.update(topic_params)
       binding.pry
+      flash[:danger] = "something...."
       redirect_to topics_path
     else
       redirect_to edit_topic_path(@topic)
