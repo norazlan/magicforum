@@ -5,9 +5,7 @@
   <% @comments.each do |comment| %>
     <div class="topic-child">
       <h5><%= comment.body %></h5>
-      <%= if comment.image.exists? then %>
-        <%= image_tag comment.image, class: "img-settings img-responsive center-block post-image" %>
-      <% end %>
+      <%= image_tag comment.image, class: "img-settings img-responsive center-block post-image" %>
 
 
       <%= link_to "Edit Comment", edit_topic_post_comment_path(@topic, @post, comment), class: "btn btn-success" %>
