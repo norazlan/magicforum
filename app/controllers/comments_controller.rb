@@ -16,7 +16,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def create
-    @topic = Topic.find_by(id; params[:topic_id])
+    @topic = Topic.find_by(id: params[:topic_id])
     @post = Post.find_by(id: params[:post_id])
     @comment = current_user.comments.build(comment_params.merge(post_id: params[:post_id]))
 
