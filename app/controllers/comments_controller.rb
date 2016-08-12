@@ -30,10 +30,10 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def edit
-    authorize @comment
     @topic = Topic.find_by(id: params[:topic_id])
     @post = Post.find_by(id: params[:post_id])
     @comment = Comment.find_by(id: params[:id])
+    authorize @comment
   end
 
   def update
