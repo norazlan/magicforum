@@ -9,19 +9,19 @@ class TopicPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.present? && poswer_user?
+    user.present? && power_user?
   end
 
   def update?
-    user.present? && poswer_user?
+    user.present? && power_user?
   end
 
   def destroy?
-    new?
+    user.present? && record.user == user || power_user?
   end
 
   private
-  def poswer_user?
+  def power_user?
     user.admin? || user.moderator?
   end
 

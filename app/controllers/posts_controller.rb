@@ -13,12 +13,14 @@ class PostsController < ApplicationController
 
   def create
     @topic = Topic.find_by(id: params[:topic_id])
-    @post = Post.new(post_params.merge(topic_id: params[:topic_id]))
+    @post = current_user.posts.build(post_params.merge(topic_id: params[:topic_id]))
 
     if @post.save
+      flash[:success] = "New Post Created"
       redirect_to topic_posts_path(@topic)
     else
-      render new_topic_post_path(@topic)
+      flash[:danger] = @post.errors.full_messages
+      redirect_to new_topic_post_path(@topic)
     end
   end
 
@@ -35,6 +37,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to topic_posts_path(@topic)
     else
+      flash[:danger] = @post.errors.full_messages
       redirect_to edit_topic_post_path(@topic, @post)
     end
   end

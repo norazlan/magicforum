@@ -1,2 +1,2 @@
 development:
-  SERVER_URL: "http://23.92.53.87:3000"
+  SERVER_URL: "http://192.168.56.103:3000"
