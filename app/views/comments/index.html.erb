@@ -1,19 +1,9 @@
-<h1>Comments for "<%= @post.title %>"</h>
-<%= link_to "Create New Comment", new_topic_post_comment_path, class: "btn btn-success" %>
+<div id="comments">
+    <% @comments.each do |comment| %>
+      <%= render partial: "comment", locals: { comment: comment, post: @post } %>
+    <% end %>
+  </div>
 
-  <section class="topic-parent text-center">
-  <% @comments.each do |comment| %>
-    <div class="topic-child">
-      <h5><%= comment.body %></h5>
-      <div id="preview-image">
-        <% if comment.image? %>
-          <%= image_tag comment.image, class: "img-settings img-responsive center-block post-image" %>
-        <% end %>
-      </div>
-
-      <%= link_to "Edit Comment", edit_topic_post_comment_path(@topic, @post, comment), class: "btn btn-success" %>
-
-
-    </div>
-  <% end %>
-  </section>
+  <div id="comments-form-container">
+    <%= render partial: "form", locals: { comment: @comment, post: @post } %>
+  </div>

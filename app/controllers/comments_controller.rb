@@ -1,31 +1,25 @@
 class CommentsController < ApplicationController
 
+respond_to :js
 before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
-    @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
-    @post = Post.find_by(id: params[:post_id])
-    @comments = @post.comments.order(id: :DESC)
-  end
-
-  def new
-    @topic = Topic.find_by(id: params[:topic_id])
-    @post = Post.find_by(id: params[:post_id])
+    @post = Post.includes(:comments).find_by(id: params[:post_id])
+    @topic = @post.topic
+    @comments = @post.comments.order(id: :ASC)
     @comment = Comment.new
-    authorize @comment
   end
 
   def create
     @topic = Topic.find_by(id: params[:topic_id])
     @post = Post.find_by(id: params[:post_id])
     @comment = current_user.comments.build(comment_params.merge(post_id: params[:post_id]))
+    @new_comment = Comment.new
 
     if @comment.save
-      flash[:success] = "You have created a comment"
-      redirect_to topic_post_comments_path(@topic, @post)
+      flash.now[:success] = "You have created a comment"
     else
-      flash[:danger] = @comment.errors.full_messages
-      render new_topic_post_comment_path(@topic, @post)
+      flash.now[:danger] = @comment.errors.full_messages
     end
   end
 
@@ -42,11 +36,9 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     @comment = Comment.find_by(id: params[:id])
 
     if @comment.update(comment_params)
-      flash[:success] = "Comment Edited"
-      redirect_to topic_post_comments_path(@topic, @post)
+      flash.now[:success] = "Comment Edited"
     else
-      flash[:danger] = @comment.errors.full_messages
-      redirect_to edit_topic_post_comment_path(@topic, @post)
+      flash.now[:danger] = @comment.errors.full_messages
     end
   end
 

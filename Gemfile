@@ -33,6 +33,8 @@ gem 'mini_magick'
 gem 'bcrypt'
 gem 'figaro'
 gem 'pundit'
+gem 'responders'
+gem 'remotipart', github: 'sr3d/remotipart'
 
 group :development, :test do
   gem 'pry'
