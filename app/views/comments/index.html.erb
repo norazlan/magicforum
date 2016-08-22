@@ -1,3 +1,4 @@
+<div class="forum-container-comments" data-id="<%=@post.id%>">
 <div id="comments">
     <% @comments.each do |comment| %>
       <%= render partial: "comment", locals: { comment: comment, post: @post } %>
@@ -7,3 +8,4 @@
   <div id="comments-form-container">
     <%= render partial: "form", locals: { comment: @comment, post: @post } %>
   </div>
+</div>
